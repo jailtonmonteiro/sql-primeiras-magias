@@ -2,4 +2,6 @@
 
 SELECT *
 
-FROM transacoes
+FROM transacao_produto
+
+WHERE IdProduto = 15
