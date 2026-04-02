@@ -15,6 +15,7 @@ WHERE DtCriacao > '2025-07-01'
 AND DtCriacao < '2025-08-01'
 
 GROUP BY idCliente
+HAVING saldoCliente >= 4000
 
 ORDER BY saldoCLiente DESC
 
