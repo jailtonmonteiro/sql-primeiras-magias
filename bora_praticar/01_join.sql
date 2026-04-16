@@ -1,8 +1,7 @@
 --Qual categoria tem mais produtos vendidos?
 
-SELECT  tp.IdProduto,
-        sum(QtdeProduto),
-        p.DescCategoriaProduto
+SELECT  p.DescCategoriaProduto AS Categorias,
+        count(DISTINCT tp.IdTransacao) AS QtdeTransacoes
 
 FROM transacao_produto AS tp
 
