@@ -18,8 +18,8 @@ tb_engaj AS (
 )
 
 SELECT t1.idCliente,
-        substr(t2.date, 1, 10),
-        t2.qtdeTransacao
+        substr(t2.date, 1, 10) AS dia,
+        t2.qtdeTransacao AS engajamentos
 
 FROM tb_prim_dia t1
 
