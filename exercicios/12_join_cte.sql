@@ -21,9 +21,10 @@ tb_curso AS (
     AND DtCriacao < '2025-08-30'
 )
 
-SELECT  count(DISTINCT t1.IdCliente)
+SELECT  count(DISTINCT t1.IdCliente) AS janeiro,
+        count(DISTINCT t2.idCliente) AS curso
 
 FROM tb_janeiro t1
 
-INNER JOIN tb_curso t2
+LEFT JOIN tb_curso t2
 ON t1.idCliente = t2.idCliente
