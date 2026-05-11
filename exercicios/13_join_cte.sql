@@ -18,12 +18,12 @@ tb_engaj AS (
 )
 
 SELECT t1.idCliente,
-        substr(t2.date, 1, 10) AS dia,
-        t2.qtdeTransacao AS engajamentos
+        max(substr(t2.date, 1, 10)) AS dia,
+        max(t2.qtdeTransacao) AS engajamentos
 
 FROM tb_prim_dia t1
 
 LEFT JOIN tb_engaj t2
 ON t1.idCliente = t2.idCliente
 
-ORDER BY t2.qtdeTransacao DESC
+GROUP BY t1.idCliente
