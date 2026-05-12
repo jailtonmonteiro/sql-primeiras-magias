@@ -18,7 +18,14 @@ tb_dia_cliente AS (
     AND t2.DtCriacao < '2025-08-30'
 
     GROUP BY t1.idCliente, substr(t2.DtCriacao, 1, 10)
+),
+
+tb_rn AS (SELECT    *,
+                    row_number() OVER (PARTITION BY idCliente ORDER BY engajamentos DESC, dtDia) AS rn
+
+            FROM tb_dia_cliente
 )
 
-SELECT  *
-FROM tb_dia_cliente
+SELECT *
+FROM tb_rn
+WHERE rn = 1
