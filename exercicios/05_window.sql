@@ -9,5 +9,5 @@ WITH tb_transacao_dia AS (
 )
 
 SELECT  *,
-        sum(qtdeTransacao) OVER (ORDER BY dtDia)
+        sum(qtdeTransacao) OVER (ORDER BY dtDia) AS acumulado
 FROM tb_transacao_dia
